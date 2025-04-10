@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div id="auth-container">
+      <h2><i class="fas fa-tasks"></i> Task Manager</h2>
+      <div id="login-form">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" required>
+        </div>
+        <button id="login-btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button id="signup-btn"><i class="fas fa-user-plus"></i> Sign Up</button>
+      </div>
+    </div>
+
+    <div id="app-container" style="display: none;">
+      <div class="header">
+        <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+        <button id="logout-btn"><i class="fas fa-sign-out-alt"></i>Logout</button>
+      </div>
+      
+      <form id="task-form">
+        <div class="input-group">
+          <i class="fas fa-plus"></i>
+          <input type="text" id="task-input" placeholder="Enter a task..." required>
+        </div>
+        <button type="submit"><i class="fas fa-plus"></i> Add Task</button>
+      </form>
+
+      <div id="progress-container">
+        <label><i class="fas fa-chart-line"></i> Progress:</label>
+        <progress id="task-progress" value="0" max="100"></progress>
+        <span id="progress-text">0%</span>
+      </div>
+
+      <div class="task-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="task-list"></ul>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

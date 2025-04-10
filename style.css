@@ -1,0 +1,519 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --success-color: #4cc9f0;
+  --danger-color: #f72585;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --gray-color: #6c757d;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Auth Container Styles */
+#auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  animation: fadeIn 0.5s ease;
+}
+
+#auth-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* App Container Styles */
+#app-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  animation: slideUp 0.5s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.header h1 {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Form Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  width: 100%;
+  transition: var(--transition);
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+button {
+  padding: 12px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#logout-btn {
+  background-color: var(--danger-color);
+}
+
+#logout-btn:hover {
+  background-color: #d90429;
+}
+
+#task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#task-form input {
+  flex: 1;
+}
+
+/* Task List Styles */
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 15px;
+  background: var(--light-color);
+  margin: 10px 0;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+  animation: slideIn 0.3s ease;
+  border-left: 4px solid var(--primary-color);
+}
+
+li:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.task-actions button {
+  padding: 8px;
+  font-size: 14px;
+  background-color: transparent;
+  color: var(--gray-color);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-actions button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--dark-color);
+}
+
+.task-actions input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+/* Progress Container Styles */
+#progress-container {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--light-color);
+  padding: 15px;
+  border-radius: var(--border-radius);
+}
+
+progress {
+  flex: 1;
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #e9ecef;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e9ecef;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  border-radius: 10px;
+}
+
+#progress-text {
+  min-width: 50px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: var(--gray-color);
+}
+
+.edit-mode input {
+  width: 100%;
+  margin-right: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #app-container, #auth-container {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  #task-form {
+    flex-direction: column;
+  }
+  
+  .task-actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* Input Group Styles */
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  color: var(--gray-color);
+  transition: var(--transition);
+}
+
+.input-group input {
+  padding-left: 45px;
+}
+
+.input-group input:focus + i {
+  color: var(--primary-color);
+}
+
+/* Task Filters */
+.task-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.filter-btn {
+  background-color: transparent;
+  color: var(--gray-color);
+  border: 1px solid var(--gray-color);
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.filter-btn:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 15px 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+.notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.notification.success {
+  border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+  border-left: 4px solid var(--danger-color);
+}
+
+.notification i {
+  font-size: 20px;
+}
+
+.notification.success i {
+  color: var(--success-color);
+}
+
+.notification.error i {
+  color: var(--danger-color);
+}
+
+/* Progress Bar Animation */
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-progress::-webkit-progress-value {
+  animation: progressAnimation 0.5s ease-out;
+}
+
+/* Task Item Animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+li {
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* Button Hover Effects */
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+button:hover::after {
+  width: 200%;
+  height: 200%;
+}
+
+/* Edit Mode Styles */
+.edit-mode {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.edit-mode input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  font-size: 16px;
+}
+
+.edit-mode .task-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-mode button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.save-btn {
+  background-color: var(--success-color);
+}
+
+.cancel-btn {
+  background-color: var(--danger-color);
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 480px) {
+  .task-filters {
+    flex-wrap: wrap;
+  }
+  
+  .filter-btn {
+    flex: 1;
+    min-width: 80px;
+  }
+  
+  .notification {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+/* Remove all modal styles */
+.modal,
+.modal.show,
+.modal-content,
+.modal-content h3,
+.modal-content p,
+.modal-buttons,
+.modal-buttons button,
+.modal-buttons .delete-btn,
+.modal-buttons .cancel-btn,
+.modal-buttons .delete-btn:hover,
+.modal-buttons .cancel-btn:hover {
+  display: none;
+}
+  
